@@ -1,0 +1,27 @@
+<ng-container *ngIf="ready">
+  <div class="map-tool-container">
+    <ng-container *ngFor="let tool of tools">
+      <div class="map-tool">
+        <ng-container *ngIf="tool == activeTool">
+          <div class="map-tool-actions" [ngClass]="position == 'right' ? 'map-tool-actions-right' : null">
+            <ng-container [ngSwitch]="tool.tool">
+              <ng-container *ngSwitchCase="availableTools.POLYLINE">
+                <app-draw-polyline (closeTool)="changeActiveTool(undefined, undefined)" [handler]="activeHandler"></app-draw-polyline>
+              </ng-container>
+              <ng-container *ngSwitchCase="availableTools.POLYGON">
+                <app-draw-polygon (closeTool)="changeActiveTool(undefined, undefined)" [handler]="activeHandler"></app-draw-polygon>
+              </ng-container>
+              <ng-container *ngSwitchCase="availableTools.ADD_LOCATION">
+                <app-draw-polygon (closeTool)="changeActiveTool(undefined, undefined)" [handler]="activeHandler"></app-draw-polygon>
+              </ng-container>
+            </ng-container>
+          </div>
+        </ng-container>
+
+        <div class="map-tool-btn">
+          <app-map-tool [active]="tool == activeTool" [svgIcon]="tool.tool" (click)="changeActiveTool(tool, $event)"></app-map-tool>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</ng-container>

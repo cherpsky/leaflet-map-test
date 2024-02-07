@@ -1,0 +1,16 @@
+<div class="tools">
+  <app-map-tool matIcon="clear_all" matTooltip="Clear measurements" (click)="clearLayer($event)"></app-map-tool>
+  <app-map-tool matIcon="insights" matTooltip="Distance" (click)="toggleTool('distance', $event)" [active]="measuringDistance" />
+  <app-map-tool
+    matIcon="motion_photos_off"
+    matTooltip="Circle area"
+    (click)="toggleTool('circleArea', $event)"
+    [active]="measuringCircleArea"
+  ></app-map-tool>
+  <app-map-tool
+    matIcon="crop_square"
+    matTooltip="Rectangle area"
+    (click)="toggleTool('rectArea', $event)"
+    [active]="measuringRectArea"
+  ></app-map-tool>
+</div>

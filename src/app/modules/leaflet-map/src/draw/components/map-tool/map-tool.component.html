@@ -1,0 +1,8 @@
+<ng-container *ngIf="ready">
+  <div class="icon-container" [ngClass]="{ active }">
+    <img *ngIf="svgIcon; else mat" [src]="'leaflet-map/assets/map-tools/' + svgIcon + '.svg'" [alt]="svgIcon" />
+    <ng-template #mat>
+      <mat-icon>{{ matIcon }}</mat-icon>
+    </ng-template>
+  </div>
+</ng-container>

@@ -1,0 +1,5 @@
+<button mat-flat-button color="primary" class="draw-action" *ngIf="drawIsAllowed" (click)="change()">
+  {{ isEditActive ? 'Change to draw' : 'Change to edit' }}
+</button>
+<button mat-flat-button color="warn" class="draw-action" *ngIf="isDrawingOrEditing" (click)="cancel()">Cancel</button>
+<button mat-flat-button color="accent" class="draw-action" (click)="save()">Save</button>
